@@ -1,9 +1,11 @@
 import geopandas
 import pandas as pd 
+import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-#https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/articles/subnationalindicatorsexplorer/2022-01-06
+#https://www.nomisweb.co.uk/sources/census_2021_pc
 
-df = pd.read_csv("pcd_p002.csv")
+df = pd.read_csv("Household #.csv")
 df['Postcode'] = df['Postcode'].str.split(' ').str[0]
 df['Postcode'] = df['Postcode'].replace('\d', '', regex=True)
 df = df.rename(columns={"Postcode":"id"})
@@ -15,18 +17,21 @@ UK = geopandas.read_file("uk-postcode-area.geojson")
 
 UK = pd.merge(right=df, left=UK, on="id")
 
-
-#uk-postcode-area.geojson
-
 print(UK)
 
-UK.crs
+#UK.crs
 
-#UK = UK.set_geometry("geometry")
-#UK2 = UK.to_crs("EPSG:4326")
+fig, ax = plt.subplots(1, 1)
+divider = make_axes_locatable(ax)
+cax = divider.append_axes("right", size="5%", pad=0.1)
+title1 = "# Households by Postcode 2021"
 
-UK.plot(column='Count', cmap='viridis', legend=True)
-#UK.plot(legend=False)
+UK_plot = UK.plot(column='Count',
+                  cmap='OrRd',
+                  ax=ax,
+                  legend=True,
+                  cax=cax,
+                  legend_kwds={"orientation": "vertical"})
 
-print(UK)
-###i am testing the commit
+UK_plot.set_axis_off()
+ax.set_title(title1)

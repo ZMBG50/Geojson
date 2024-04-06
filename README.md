@@ -1,3 +1,8 @@
+# GEOJSON
+
+This github will serve as a repository for geopsatial data projects. I have a physical map collection. Why not a digital one? 
+
+
 # Number of Households by Postcodes (2021)
 
 This is a basic project using Pandas and Geopandas to create a spatial visual. This is plotted with Matplotlib.

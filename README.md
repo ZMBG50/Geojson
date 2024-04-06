@@ -1,8 +1,8 @@
 # Number of Households by Postcodes (2021)
 
-This is a basic project using Pandas and Geopandas to create a spatial visual using Matplotlib.
+This is a basic project using Pandas and Geopandas to create a spatial visual. This is plotted with Matplotlib.
 
-I found the data at https://www.nomisweb.co.uk/sources/census_2021_pc. I find using postcode data is the easiest and cleanest way to present geography data within the UK. There are so many different authority classes its a real pain to line them all up together!
+I found the data at https://www.nomisweb.co.uk/sources/census_2021_pc. I find using postcode data is the easiest and cleanest way to present geographic data within the UK. There are so many different authority classes its a real pain to line them all up together!
 You can tell there hasn't been a modern revolution in the UK with this amount of administrative bagagge. Therefore, I am relying on postcode data that has been grouped into postcode area.
 
 Below you'll find the code in VS along with the output.
